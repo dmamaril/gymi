@@ -22,7 +22,8 @@ export interface Vendor {
 }
 
 interface Props {
-    onButtonClick?: () => void;
+    onCardPress: () => void;
+    onButtonPress?: () => void;
     buttonText?: string
     cardSize: CardSize;
     containerHeight?: number | string;
@@ -37,14 +38,17 @@ export default class Vendors extends Component<Props> {
 
     render() {
         const vendorCards = this.props.vendors.map((vendor: Vendor) => (
-            <VendorCard vendor={vendor} cardSize={this.props.cardSize} key={vendor.id}/>
+            <VendorCard
+                vendor={vendor}
+                onPress={this.props.onCardPress}
+                cardSize={this.props.cardSize} key={vendor.id}/>
         ));
 
         let button = null;
 
-        if (this.props.buttonText && this.props.onButtonClick) {
+        if (this.props.buttonText && this.props.onButtonPress) {
             button = (
-                <TouchableHighlight onPress={this.props.onButtonClick} style={styles.centerButton}>
+                <TouchableHighlight onPress={this.props.onButtonPress} style={styles.centerButton}>
                     <Text>{this.props.buttonText}</Text>
                 </TouchableHighlight>
             );

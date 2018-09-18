@@ -3,8 +3,10 @@ import React, {Component} from "react";
 import Icon from "react-native-vector-icons/Ionicons";
 
 interface Props {
-    text: string;
-    onChangeText: (text: string) => void;
+    icon: string;
+    value: string;
+    onIconPress?: () => void;
+    onSubmit: (text: string) => void;
 }
 
 export default class SearchBox extends Component<Props> {
@@ -16,13 +18,13 @@ export default class SearchBox extends Component<Props> {
     render() {
         return (
             <View style={styles.searchBox}>
-                <Icon name="ios-search" size={20} style={{marginRight: 10}}/>
+                <Icon name={this.props.icon} onPress={this.props.onIconPress} size={20} style={{marginRight: 10}}/>
                 <TextInput
                     placeholder={`Try "Tel Aviv"`}
                     placeholderTextColor="grey"
                     style={styles.textInput}
-                    value={this.props.text}
-                    onChangeText={this.props.onChangeText}/>
+                    value={this.props.value}
+                    onChangeText={this.props.onSubmit}/>
             </View>
         );
     }

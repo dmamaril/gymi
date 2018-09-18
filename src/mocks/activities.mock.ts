@@ -1,4 +1,4 @@
-import {Activity} from "../views/Explore";
+import {Activity} from "../views/Explore/Explore";
 
 export default class ActivityMock {
     public static getActivities(): Activity[] {

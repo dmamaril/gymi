@@ -1,5 +1,5 @@
 import React from "react";
-import Explore from "./src/views/Explore";
+import Explore from "./src/views/Explore/Explore";
 import Favorites from "./src/views/Favorites";
 import Profile from "./src/views/Profile";
 import Offers from "./src/views/Offers";
